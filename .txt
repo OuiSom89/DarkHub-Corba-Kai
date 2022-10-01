@@ -1,58 +1,8 @@
-function TeleportCar()
-	if _G.tp== true then
-		local LocalPlayer = game:GetService("Players").LocalPlayer
-		local Character = LocalPlayer.Character
-		local Humanoid = Character:FindFirstChildWhichIsA("Humanoid")
-		local SeatPart = Humanoid.SeatPart
-		local Vehicle = SeatPart.Parent
-		Vehicle.PrimaryPart = SeatPart
-		Character.Parent = Vehicle
-		Vehicle:MoveTo(Vector3.new(-800.616455, 25.6866837, 245.280884,-0.746865153, -3.69026623e-08, -0.664975524, -2.43899745e-08, 1, -2.81012476e-08, 0.664975524, -4.76910689e-09, -0.746865153))
-Character.Parent = workspace
+if isfolder("DarkScriptHub") == true then
+else makefolder("DarkScriptHub")
 end
-end
-
-function Esp()
-	_G.ESP = false
-	_G.ESPColor = Color3.fromRGB(255, 255, 255)
-
-pcall(
-    function()
-        local highlight = Instance.new("Highlight")
-
-        game:GetService("RunService").RenderStepped:Connect(
-            function()
-                for _, v in pairs(game.Players:GetPlayers()) do
-                    if not v.Character:FindFirstChild("Highlight") then
-                        highlight.FillTransparency = 1
-                        highlight:Clone().Parent = v.Character
-                        highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
-                    end
-
-                    game.Players.PlayerAdded:Connect(
-                        function(plr)
-                            plr.CharacterAdded:Connect(
-                                function(char)
-                                    if not char:FindFirstChild("Highlight") then
-                                        highlight.FillTransparency = 1
-                                        highlight:Clone().Parent = char
-                                        highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
-                                    end
-                                end
-                            )
-                        end
-                    )
-                end
-
-                for _, v in pairs(game.Players:GetPlayers()) do
-                    local hl = v.Character:FindFirstChild("Highlight")
-                    hl.Enabled = _G.ESP
-                    hl.OutlineColor = _G.ESPColor
-                end
-            end
-        )
-    end
-)
+function Ds()
+	setclipboard("discord.gg/W7VHxeP4ks")
 end
 --[[----------------------Instance----------------------]]
 -----------------------GUI-Fondation----------------------
@@ -82,9 +32,12 @@ local G2Image = Instance.new("ImageLabel")
 local G2ImageButton1 = Instance.new("ImageButton")
 local G2ImageButton2 = Instance.new("ImageButton")
 local G2ScriptTitle2 = Instance.new("TextLabel")
+local G2ScriptTitle4 = Instance.new("TextLabel")
 local G2Image2 = Instance.new("ImageLabel")
-local G2Image2Button1 = Instance.new("ImageButton")
-local G2Image2Button2 = Instance.new("ImageButton")
+local RedBarre = Instance.new("Frame")
+local Force_Speed = Instance.new("TextLabel")
+local G2TextButton = Instance.new('TextButton')
+local G2TextButton2 = Instance.new('TextButton')
 ------------------------Commande--------------------------
 local Image3 = Instance.new("ImageButton")
 local G3CMD = Instance.new("Frame")
@@ -121,11 +74,7 @@ local UICornerG1Home1 = Instance.new("UICorner")
 local UICornerG4Title1 = Instance.new("UICorner")
 local UICornerG4Option1 = Instance.new("UICorner")
 local UICornerG1Home2 = Instance.new("UICorner")
-local UICornerG2Script1 = Instance.new("UICorner")
 local UICornerG3CMD2 = Instance.new("UICorner")
-local UICornerG2ScriptTitle = Instance.new("UICorner")
-local UICornerG2ScriptTitle1 = Instance.new("UICorner")
-local UICornerG2ScriptTitle2 = Instance.new("UICorner")
 local UICornerG1Image = Instance.new("UICorner")
 local UICornerG3CMD1 = Instance.new("UICorner")
 local UICornerG4Option4 = Instance.new("UICorner")
@@ -136,6 +85,13 @@ local UICornerTitle = Instance.new("UICorner")
 local UICornerMenuButton = Instance.new("UICorner")
 local UICornerCloseButton = Instance.new("UICorner")
 local UICornerGUIImage = Instance.new("UICorner")
+local UICornerG2Script1 = Instance.new("UICorner")
+local UICornerG2ScriptTitle = Instance.new("UICorner")
+local UICornerG2ScriptTitle1 = Instance.new("UICorner")
+local UICornerG2ScriptTitle2 = Instance.new("UICorner")
+local UICornerG2TextButton = Instance.new('UICorner')
+local UICornerG2TextButton2 = Instance.new('UICorner')
+local UICornerG2ScriptTitle4 = Instance.new('UICorner')
 --[[-----------------------PreSet-----------------------]]
 ------------------------UICorner--------------------------
 ScreenGui.Parent = game.CoreGui
@@ -156,11 +112,14 @@ UICornerG3CMD2.Parent = G3CMD2
 UICornerG4Option4.Parent = G4Option
 UICornerG5Owner5.Parent = G5Owner
 UICornerG1Image.Parent = G1Image
-UICornerG4Option1.Parent = G4Option1
 UICornerG2Script1.Parent = G2Script1
 UICornerG2ScriptTitle.Parent = G2ScriptTitle
 UICornerG2ScriptTitle1.Parent = G2ScriptTitle1
 UICornerG2ScriptTitle2.Parent = G2ScriptTitle2
+UICornerG4Option1.Parent = G4Option1
+UICornerG2TextButton.Parent = G2TextButton
+UICornerG2TextButton2.Parent = G2TextButton2
+UICornerG2ScriptTitle4.Parent = G2ScriptTitle4
 --[[-------------------Principal-GUI--------------------]]
 ------------------------FirstGUI--------------------------
 FirstGUI.Name = "GUI"
@@ -277,6 +236,7 @@ G1Text1.TextColor3 = Color3.fromRGB(255, 255, 255)
 G1Text1.TextSize = 20.000
 G1Text1.BackgroundTransparency = 1
 ------------------------G1Update--------------------------
+loadstring(game:HttpGet("https://raw.githubusercontent.com/OuiSom89/Update/main/Update.txt"))()
 G1Update.Name = "G1Update"
 G1Update.Parent = G1Home2
 G1Update.Position = UDim2.new(0, 10, 0, 10)
@@ -286,7 +246,7 @@ G1Update.BorderSizePixel = 0
 G1Update.Font = Enum.Font.GothamBold
 G1Update.TextXAlignment = Enum.TextXAlignment.Left
 G1Update.TextYAlignment = Enum.TextYAlignment.Top
-G1Update.Text = "Update :\n\nI have finish a GUI"
+G1Update.Text = UpdateTxt
 G1Update.TextColor3 = Color3.fromRGB(255, 255, 255)
 G1Update.TextSize = 14.000
 --[[-----------------------Script-----------------------]]
@@ -331,7 +291,7 @@ G2ScriptTitle.Parent = G2ScrollingFrame
 G2ScriptTitle.BackgroundColor3 = Color3.fromRGB(212,175,55)
 G2ScriptTitle.Position = UDim2.new(0, 5, 0, 5)
 G2ScriptTitle.Size = UDim2.new(0, 380, 0, 50)
-G2ScriptTitle.Text = "Driving Empire Script"
+G2ScriptTitle.Text = "COBRA KAI Script"
 G2ScriptTitle.TextColor3 = Color3.fromRGB(255,255,255)
 G2ScriptTitle.TextSize = 20
 ------------------------G2ScriptTitle1--------------------------
@@ -341,9 +301,10 @@ G2ScriptTitle1.BackgroundColor3 = Color3.fromRGB(212,175,55)
 G2ScriptTitle1.Position = UDim2.new(0, 5, 0, 60)
 G2ScriptTitle1.Size = UDim2.new(0, 187.5, 0, 50)
 G2ScriptTitle1.TextXAlignment = Enum.TextXAlignment.Left
+G2ScriptTitle1.Font = Enum.Font.GothamBold
 G2ScriptTitle1.Text = " Autofarm"
 G2ScriptTitle1.TextColor3 = Color3.fromRGB(255,255,255)
-G2ScriptTitle1.TextSize = 20
+G2ScriptTitle1.TextSize = 16
 ------------------------G2Image--------------------------
 G2Image.Name = "G2Image"
 G2Image.BackgroundColor3 = Color3.fromRGB(212,175,55)
@@ -353,7 +314,7 @@ G2Image.Position = UDim2.new(0, 135, 0, 2.5)
 G2Image.Size = UDim2.new(0, 45, 0, 45)
 G2Image.Image = 'rbxassetid://10847859678'
 ------------------------G2ImageButton1--------------------------
-_G.TP = false
+getgenv().Autofarm = false
 G2ImageButton1.Name = "CloseButton"
 G2ImageButton1.Parent = G2Image
 G2ImageButton1.BackgroundColor3 = Color3.fromRGB(212,175,55)
@@ -361,44 +322,33 @@ G2ImageButton1.BorderSizePixel = 0
 G2ImageButton1.Position = UDim2.new(0, 5, 0, 5)
 G2ImageButton1.Size = UDim2.new(0, 35, 0, 35)
 G2ImageButton1.Image = ''
-G2ImageButton1.Visible = true
 G2ImageButton1.MouseButton1Click:Connect(function()
-	if _G.TP == false then
-		_G.TP = true
-	else _G.TP = false 
-	end
-	TeleportCar()
-	G2ImageButton1.Visible = false
-	G2ImageButton2.Visible = true
+    if Autofarm == true then
+        Autofarm = false
+    else Autofarm = true
+    end
+    if Autofarm == false then
+        G2ImageButton1.Image = ''
+    else G2ImageButton1.Image = 'rbxassetid://10847842044'
+    end
+
+    if Autofarm == true then
+        while Autofarm do wait()
+        PunchingBag = game.Workspace.PunchingBag.MeshPart
+        PunchingBag.CFrame = CFrame.new(-150.175339, 17.7124176, 138.312851)
+        PunchingBag.Size = Vector3.new(20,20,20)
+        PunchingBag.CanCollide = false
+        PunchingBag.Transparency = 0.7
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = PunchingBag.CFrame
+            pcall(function()
+                   game:GetService("ReplicatedStorage").Remotes.PushUp:FireServer()
+            end)
+            pcall(function()
+                   game:GetService("ReplicatedStorage").Attack:FireServer(math.random(1,5))
+            end)
+        end
+    end
 end)
-------------------------G2ImageButton2--------------------------
-G2ImageButton2.Name = "CloseButton"
-G2ImageButton2.Parent = G2Image
-G2ImageButton2.BackgroundColor3 = Color3.fromRGB(212,175,55)
-G2ImageButton2.BorderSizePixel = 0
-G2ImageButton2.Position = UDim2.new(0, 5, 0, 5)
-G2ImageButton2.Size = UDim2.new(0, 35, 0, 35)
-G2ImageButton2.Image = 'rbxassetid://10847842044'
-G2ImageButton2.Visible = false
-G2ImageButton2.MouseButton1Click:Connect(function()
-	if _G.TP == false then
-		_G.TP = true
-	else _G.TP = false 
-	end
-	TeleportCar()
-	G2ImageButton1.Visible = true
-	G2ImageButton2.Visible = false
-end)
-------------------------G2ScriptTitle2--------------------------
-G2ScriptTitle2.Name = "G2ScriptTitle2"
-G2ScriptTitle2.Parent = G2ScrollingFrame
-G2ScriptTitle2.BackgroundColor3 = Color3.fromRGB(212,175,55)
-G2ScriptTitle2.Position = UDim2.new(0, 197.5, 0, 60)
-G2ScriptTitle2.Size = UDim2.new(0, 187.5, 0, 50)
-G2ScriptTitle2.TextXAlignment = Enum.TextXAlignment.Left
-G2ScriptTitle2.Text = " ESP"
-G2ScriptTitle2.TextColor3 = Color3.fromRGB(255,255,255)
-G2ScriptTitle2.TextSize = 20
 ------------------------G2Image--------------------------
 G2Image2.Name = "G2Image2"
 G2Image2.BackgroundColor3 = Color3.fromRGB(212,175,55)
@@ -407,42 +357,64 @@ G2Image2.BorderSizePixel = 0
 G2Image2.Position = UDim2.new(0, 135, 0, 2.5)
 G2Image2.Size = UDim2.new(0, 45, 0, 45)
 G2Image2.Image = 'rbxassetid://10847859678'
-------------------------G2ImageButton1--------------------------
-_G.ESP = false
-G2Image2Button1.Name = "CloseButton"
-G2Image2Button1.Parent = G2Image2
-G2Image2Button1.BackgroundColor3 = Color3.fromRGB(212,175,55)
-G2Image2Button1.BorderSizePixel = 0
-G2Image2Button1.Position = UDim2.new(0, 5, 0, 5)
-G2Image2Button1.Size = UDim2.new(0, 35, 0, 35)
-G2Image2Button1.Image = ''
-G2Image2Button1.Visible = true
-G2Image2Button1.MouseButton1Click:Connect(function()
-	if _G.ESP == false then
-		_G.ESP = true
-	else _G.ESP = false 
-	end
-	Esp()
-	G2Image2Button1.Visible = false
-	G2Image2Button2.Visible = true
-end)
 ------------------------G2ImageButton2--------------------------
-G2Image2Button2.Name = "CloseButton"
-G2Image2Button2.Parent = G2Image2
-G2Image2Button2.BackgroundColor3 = Color3.fromRGB(212,175,55)
-G2Image2Button2.BorderSizePixel = 0
-G2Image2Button2.Position = UDim2.new(0, 5, 0, 5)
-G2Image2Button2.Size = UDim2.new(0, 35, 0, 35)
-G2Image2Button2.Image = 'rbxassetid://10847842044'
-G2Image2Button2.Visible = false
-G2Image2Button2.MouseButton1Click:Connect(function()
-	if _G.ESP == false then
-		_G.ESP = true
-	else _G.ESP = false 
-	end
-	Esp()
-	G2Image2Button1.Visible = true
-	G2Image2Button2.Visible = false
+getgenv().Endurance = false
+G2ImageButton2.Name = "G2ImageButton2"
+G2ImageButton2.Parent = G2Image2
+G2ImageButton2.BackgroundColor3 = Color3.fromRGB(212,175,55)
+G2ImageButton2.BorderSizePixel = 0
+G2ImageButton2.Position = UDim2.new(0, 5, 0, 5)
+G2ImageButton2.Size = UDim2.new(0, 35, 0, 35)
+G2ImageButton2.Image = ''
+G2ImageButton2.MouseButton1Click:Connect(function()
+    if Endurance == true then
+        Endurance = false
+    else Endurance = true
+    end
+    if Endurance == false then
+        G2ImageButton2.Image = ''
+    else G2ImageButton2.Image = 'rbxassetid://10847842044'
+    end
+    if Endurance == true then
+        while Endurance do wait()
+        PunchingBag = game.Workspace.PunchingBag.MeshPart
+        PunchingBag.CFrame = CFrame.new(-150.175339, 17.7124176, 138.312851)
+        PunchingBag.Size = Vector3.new(20,20,20)
+        PunchingBag.CanCollide = false
+        PunchingBag.Transparency = 0.7
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = PunchingBag.CFrame
+        pcall(function()
+            game:GetService("ReplicatedStorage").Remotes.SitUp:FireServer()
+        end)
+        end
+    end
+end)
+------------------------G2ScriptTitle2--------------------------
+G2ScriptTitle2.Name = "G2ScriptTitle2"
+G2ScriptTitle2.Parent = G2ScrollingFrame
+G2ScriptTitle2.BackgroundColor3 = Color3.fromRGB(212,175,55)
+G2ScriptTitle2.Position = UDim2.new(0, 197.5, 0, 60)
+G2ScriptTitle2.Size = UDim2.new(0, 187.5, 0, 50)
+G2ScriptTitle2.TextXAlignment = Enum.TextXAlignment.Left
+G2ScriptTitle2.Font = Enum.Font.GothamBold
+G2ScriptTitle2.Text = " Endurance"
+G2ScriptTitle2.TextColor3 = Color3.fromRGB(255,255,255)
+G2ScriptTitle2.TextSize = 16
+--[[-----------------------CMD------------------------]]
+------------------------Image3--------------------------
+Image3.Name = "CloseButton"
+Image3.Parent = GUIImage
+Image3.BackgroundColor3 = Color3.fromRGB(0,0,0)
+Image3.BorderSizePixel = 0
+Image3.Position = UDim2.new(0, 5, 0, 115)
+Image3.Size = UDim2.new(0, 50, 0, 50)
+Image3.Image = 'rbxassetid://10768327995'
+Image3.MouseButton1Click:Connect(function()
+	G1Home.Visible = false
+	G2Script.Visible = false
+	G3CMD.Visible = true
+	G4Option.Visible = false
+	G5Owner.Visible = false
 end)
 --[[-----------------------CMD------------------------]]
 ------------------------Image3--------------------------
@@ -481,7 +453,7 @@ G3Text1.Size = UDim2.new(0, 400, 0, 155)
 G3Text1.Font = Enum.Font.GothamBold
 G3Text1.TextXAlignment = Enum.TextXAlignment.Left
 G3Text1.TextYAlignment = Enum.TextYAlignment.Bottom
-G3Text1.Text = "[CMD] >> Hello world"
+G3Text1.Text = "[CMD] >> Hello world\n[CMD] >> CMD doesn't work"
 G3Text1.TextColor3 = Color3.fromRGB(255, 255, 255)
 G3Text1.TextSize = 14.000
 G3Text1.BackgroundTransparency = 1
@@ -618,7 +590,7 @@ G5Owner1.BackgroundColor3 = Color3.fromRGB(30,30,30)
 G5Owner1.Position = UDim2.new(0, 20, 0, 40)
 G5Owner1.Size = UDim2.new(0, 410, 0, 220)
 ------------------------G5Image--------------------------
-local Url1 = Ps:GetUserThumbnailAsync(748596200, Enum.ThumbnailType.AvatarThumbnail, Enum.ThumbnailSize.Size420x420)
+local Url1 = Ps:GetUserThumbnailAsync(651400375, Enum.ThumbnailType.AvatarThumbnail, Enum.ThumbnailSize.Size420x420)
 G5Image.BackgroundColor3 = Color3.fromRGB(30,30,30)
 G5Image.Name = "G5Image"
 G5Image.Parent = G5Owner1
@@ -699,3 +671,29 @@ if key == KeyHideGUI then
   end
 end
 end)
+
+RedBarre.Name = 'RedBarre'
+RedBarre.Parent = ScreenGui
+RedBarre.BackgroundColor3 = Color3.fromRGB(255,0,0)
+RedBarre.BorderSizePixel = 0
+RedBarre.Position = UDim2.new(0, 0, 0, 0)
+RedBarre.Size = UDim2.new(0, 400, 0, 100)
+
+Strength = game:GetService("Players").LocalPlayer.StatsFolder.Strength.Value
+
+RedBarre.Name = 'RedBarre'
+RedBarre.Parent = ScreenGui
+RedBarre.BackgroundColor3 = Color3.fromRGB(255,0,0)
+RedBarre.BorderSizePixel = 0
+RedBarre.Position = UDim2.new(0, 27, 0, 560)
+RedBarre.Size = UDim2.new(0, 403, 0, 25)
+
+Force_Speed.Name = "Force_Speed"
+Force_Speed.Parent = ScreenGui
+Force_Speed.BackgroundTransparency = 1
+Force_Speed.Size = UDim2.new(0, 403, 0, 25)
+Force_Speed.Position = UDim2.new(0, 27, 0, 535)
+Force_Speed.BorderSizePixel = 0
+Force_Speed.Text = "Strength/Speed : "..Strength
+Force_Speed.TextColor3 = Color3.fromRGB(255, 255, 255)
+Force_Speed.TextSize = 20.000
