@@ -1,10 +1,12 @@
-if isfolder("DarkScriptHub") == true then
-else makefolder("DarkScriptHub")
+if isfolder("DarkScriptHub_") == true then
+else makefolder("DarkScriptHub_")
 end
 function Ds()
 	setclipboard("discord.gg/W7VHxeP4ks")
 end
 --[[----------------------Instance----------------------]]
+BarreLoading.Image = BarreLoading1
+LoN2 = "1"
 -----------------------GUI-Fondation----------------------
 local ScreenGui = Instance.new("ScreenGui")
 local FirstGUI = Instance.new("Frame")
@@ -121,6 +123,8 @@ UICornerG2TextButton.Parent = G2TextButton
 UICornerG2TextButton2.Parent = G2TextButton2
 UICornerG2ScriptTitle4.Parent = G2ScriptTitle4
 --[[-------------------Principal-GUI--------------------]]
+BarreLoading.Image = BarreLoading2
+LoN2 = "2"
 ------------------------FirstGUI--------------------------
 FirstGUI.Name = "GUI"
 FirstGUI.Parent = ScreenGui
@@ -129,7 +133,7 @@ FirstGUI.Position = UDim2.new(0.348986119, 0, 0.369458109, 0)
 FirstGUI.Size = UDim2.new(0, 450, 0, 280)
 FirstGUI.Active = true
 FirstGUI.Draggable = true
-FirstGUI.Visible = true
+FirstGUI.Visible = false
 ------------------------GUIImage--------------------------
 GUIImage.Name = "GUIImage"
 GUIImage.Parent = FirstGUI
@@ -178,7 +182,10 @@ CloseButton.Image = 'rbxassetid://10764303701'
 CloseButton.MouseButton1Click:Connect(function()
 	ScreenGui:Destroy()
 end)
+
 --[[------------------------HOME------------------------]]
+BarreLoading.Image = BarreLoading3
+LoN2 = "3"
 -------------------------Image1---------------------------  
 Image1.Name = "CloseButton"
 Image1.Parent = GUIImage
@@ -250,6 +257,8 @@ G1Update.Text = UpdateTxt
 G1Update.TextColor3 = Color3.fromRGB(255, 255, 255)
 G1Update.TextSize = 14.000
 --[[-----------------------Script-----------------------]]
+BarreLoading.Image = BarreLoading4
+LoN2 = "4"
 -------------------------Image2---------------------------
 Image2.Name = "CloseButton"
 Image2.Parent = GUIImage
@@ -401,6 +410,8 @@ G2ScriptTitle2.Text = " Endurance"
 G2ScriptTitle2.TextColor3 = Color3.fromRGB(255,255,255)
 G2ScriptTitle2.TextSize = 16
 --[[-----------------------CMD------------------------]]
+BarreLoading.Image = BarreLoading5
+LoN2 = "5"
 ------------------------Image3--------------------------
 Image3.Name = "CloseButton"
 Image3.Parent = GUIImage
@@ -416,7 +427,6 @@ Image3.MouseButton1Click:Connect(function()
 	G4Option.Visible = false
 	G5Owner.Visible = false
 end)
---[[-----------------------CMD------------------------]]
 ------------------------Image3--------------------------
 Image3.Name = "CloseButton"
 Image3.Parent = GUIImage
@@ -476,6 +486,8 @@ G3TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 G3TextBox.TextSize = 20.000
 G3TextBox.BackgroundTransparency = 1
 --[[--------------------Option------------------------]]
+BarreLoading.Image = BarreLoading4
+LoN2 = "4"
 ------------------------Image4--------------------------
 Image4.Name = "CloseButton"
 Image4.Parent = GUIImage
@@ -561,6 +573,8 @@ G4TextButton1.Size = UDim2.new(0, 187.5, 0, 50)
 G4TextButton1.TextColor3 = Color3.fromRGB(255, 255, 255)
 G4TextButton1.Font = Enum.Font.GothamBold
 --[[---------------------Owner-------------------------]]
+BarreLoading.Image = BarreLoading6
+LoN2 = "6"
 ------------------------Image5--------------------------
 Image5.Name = "CloseButton"
 Image5.Parent = GUIImage
@@ -697,3 +711,10 @@ Force_Speed.BorderSizePixel = 0
 Force_Speed.Text = "Strength/Speed : "..Strength
 Force_Speed.TextColor3 = Color3.fromRGB(255, 255, 255)
 Force_Speed.TextSize = 20.000
+
+BarreLoading.Image = BarreLoading7
+LoN2 = "7"
+
+FirstGUI.Visible = true
+
+game:GetService("CoreGui").RobloxGui.LoadingDarkScriptHub:Destroy()
